@@ -1,0 +1,29 @@
+{% extends "base.html" %}   
+
+{% block content %}
+<h1>Signup</h1>
+<form method='POST'>
+    <label>Username
+    <input name="hours" type="text" value="{{hours}}" />
+    </label>
+    <p class="error">{{error}}</p>
+    
+    <label>Password
+    <input name="minutes" type="password" value='{{minutes}}' />
+    </label>
+    <p class="error">{{error}}</p>
+    
+    <label>Verify Password
+        <input name="Verify Password" type="password" />
+    </label>
+    <p class="error">{{error}}</p>
+
+    <label>Email (optional)
+        <input name="Email" type="text" />
+    </label>
+    <p class="error">{{error}}</p>
+    
+    <input type="submit" value="Submit" />
+
+</form>
+{% endblock %}
