@@ -1,5 +1,6 @@
 from flask import Flask, request, redirect, render_template
 import cgi
+import re
 
 
 
@@ -11,6 +12,8 @@ def welcome():
     username= request.form['username']
     password= request.form['password']
     verify_password = request.form['verify_password']
+    email = request.form['email']
+    pattern = r"[A-z0-9]+@[A-z0-9]+\.[A-z0-9.]+"
     
     if len(username)< 1:
         error = "Please enter valid username"
@@ -24,6 +27,10 @@ def welcome():
         verify_error= "Passwords don't match!"
         return render_template('index.html', verify_error=verify_error)
     
+    elif not re.match(pattern, email):
+        email_error = "Invalid email"
+        return render_template('index.html', email_error=email_error)
+
     else:
         return render_template('welcome.html', username=username)
 
