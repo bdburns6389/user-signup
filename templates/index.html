@@ -7,8 +7,8 @@
     <label>Username
     <input type="text" name="username" value="{{username}}" />
     </label>
-    {% if error %}
-    <span class='error'>{{ error }}</span>
+    {% if user_error %}
+    <span class='error'>{{ user_error }}</span>
     {% endif %}
     <br>
     
@@ -29,10 +29,10 @@
     <br>
 
     <label>Email
-        <input type="text" name="verify_password" value="{{verify_password}}" />
+        <input type="text" name="email" value="{{email}}" />
         </label>
-        {% if verify_error %}
-        <span class='error'>{{ verify_error }}</span>
+        {% if email_error %}
+        <span class='error'>{{ email_error }}</span>
         {% endif %}
     <br>
 

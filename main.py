@@ -6,23 +6,25 @@ import cgi
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
+user_error = "That's not a valid username."
+pass_error = "That's not a valid password."
+match_error = "Passwords don't match."
+email_error = "That's not a valid email."
+
 @app.route("/input", methods=['POST'])
 def welcome():
     username= request.form['username']
     password= request.form['password']
     verify_password = request.form['verify_password']
-    
+    email = request.form['email']
     if len(username)< 1:
-        error = "Please enter valid username"
-        return render_template('index.html', error=error)
+        return render_template('index.html', user_error=user_error)
 
     elif len(password) < 1:
-        pass_error= "Too Short of a Password"
         return render_template('index.html', pass_error=pass_error)
     
     elif password != verify_password:
-        verify_error= "Passwords don't match!"
-        return render_template('index.html', verify_error=verify_error)
+        return render_template('index.html', verify_error=match_error)
     
     else:
         return render_template('welcome.html', username=username)
