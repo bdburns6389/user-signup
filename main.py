@@ -20,14 +20,19 @@ def welcome():
     if len(username)< 1:
         return render_template('index.html', user_error=user_error, username=username)
 
-    elif len(password) < 1:
+    if len(password) < 1:
         return render_template('index.html', pass_error=pass_error, username=username)
     
-    elif password != verify_password:
+    if password != verify_password:
         return render_template('index.html', verify_error=match_error)
     
-    else:
-        return render_template('welcome.html', username=username)
+    if "." not in email or "@" not in email:
+        return render_template('index.html', email_error=email_error)
+
+    
+    return render_template('welcome.html', username=username)
+
+    
 
 
 @app.route("/")
