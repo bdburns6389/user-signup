@@ -18,10 +18,10 @@ def welcome():
     verify_password = request.form['verify_password']
     email = request.form['email']
     if len(username)< 1:
-        return render_template('index.html', user_error=user_error)
+        return render_template('index.html', user_error=user_error, username=username)
 
     elif len(password) < 1:
-        return render_template('index.html', pass_error=pass_error)
+        return render_template('index.html', pass_error=pass_error, username=username)
     
     elif password != verify_password:
         return render_template('index.html', verify_error=match_error)
@@ -39,4 +39,5 @@ def index():
 
 app.run()
 
-"""If both fields are correct, works correctly.  if """
+#Make sure to put username=username/email=email in rendertemplate of all
+#elif's so that it is kept as data in the fields.  Passwords go away is fine.
