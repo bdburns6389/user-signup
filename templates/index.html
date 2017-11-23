@@ -23,8 +23,8 @@
     <label>Verify Password
         <input type="password" name="verify_password" value="{{verify_password}}" />
         </label>
-        {% if verify_error %}
-        <span class='error'>{{ verify_error }}</span>
+        {% if match_error %}
+        <span class='error'>{{ match_error }}</span>
         {% endif %}
     <br>
 
