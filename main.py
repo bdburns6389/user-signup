@@ -44,5 +44,3 @@ def index():
 
 app.run()
 
-#Make sure to put username=username/email=email in rendertemplate of all
-#elif's so that it is kept as data in the fields.  Passwords go away is fine.
