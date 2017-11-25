@@ -25,17 +25,19 @@ def welcome():
     if len(password) < 3 or len(password) > 20:
         pass_error = "That's not a valid password."
     
-    if password != verify_password:
+    if password != verify_password or len(verify_password)<1:
         match_error = "Passwords don't match."
     
     if len(email) > 1:
         if "." not in email or "@" not in email or len(email) < 8 or len(email) > 28:
             email_error = "That's not a valid email."
     
-    if user_error = "" and pass_error = "" and match_error = "" and email_error = "":
+    if not user_error and not pass_error and not match_error and not email_error:
         return render_template('welcome.html', username=username)
     else: 
-        return render_template('index.html', username=username, email=email, user_error=user_error, pass_error=pass_error, match_error=match_error, email_error=email_error)
+        return render_template('index.html', username=username, email=email, 
+        user_error=user_error, pass_error=pass_error, match_error=match_error, 
+        email_error=email_error)
 
 @app.route("/")
 def index():
