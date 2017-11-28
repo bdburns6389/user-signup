@@ -10,8 +10,8 @@ app.config['DEBUG'] = True
 
 @app.route("/input", methods=['POST'])
 def welcome():
-    username= request.form['username']
-    password= request.form['password']
+    username = request.form['username']
+    password = request.form['password']
     verify_password = request.form['verify_password']
     email = request.form['email']
     user_error = ""
